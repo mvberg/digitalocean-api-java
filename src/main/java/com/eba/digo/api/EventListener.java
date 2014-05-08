@@ -1,4 +1,4 @@
-package com.eba.digo;
+package com.eba.digo.api;
 
 /**
  * Created by m-ehrenberg on 4/30/2014.

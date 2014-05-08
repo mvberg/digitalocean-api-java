@@ -1,5 +1,10 @@
-package com.eba.digo;
+package com.eba.digo.api;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.io.UnsupportedEncodingException;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -222,4 +227,26 @@ public class OceanUtil {
 
 	}
 
+	public static String slurp(final InputStream is, final int bufferSize) {
+		final char[] buffer = new char[bufferSize];
+		final StringBuilder out = new StringBuilder();
+		try {
+			final Reader in = new InputStreamReader(is, "UTF-8");
+			try {
+				for (;;) {
+					int rsz = in.read(buffer, 0, buffer.length);
+					if (rsz < 0)
+						break;
+					out.append(buffer, 0, rsz);
+				}
+			} finally {
+				in.close();
+			}
+		} catch (UnsupportedEncodingException ex) {
+			/* ... */
+		} catch (IOException ex) {
+			/* ... */
+		}
+		return out.toString();
+	}
 }

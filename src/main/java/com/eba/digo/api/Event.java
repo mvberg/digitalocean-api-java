@@ -1,5 +1,5 @@
 
-package com.eba.digo;
+package com.eba.digo.api;
 
 
 import com.google.gson.annotations.Expose;
