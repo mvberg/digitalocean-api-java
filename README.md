@@ -1,4 +1,4 @@
-```
+```java
 // test getting all Droplets 
 
 String url = ENDPOINT.replace("COMMAND", "droplets");
